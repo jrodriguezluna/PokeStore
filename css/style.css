@@ -9,3 +9,8 @@ body {
     min-height: 70px; /* Esta es la altura promedio de una navbar de Bootstrap */
     width: 100%;
 }
+
+.carousel-item img {
+    height: 650px; 
+    object-fit: contain; 
+}
