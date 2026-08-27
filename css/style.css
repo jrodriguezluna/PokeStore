@@ -1,0 +1,11 @@
+body {
+    background-image: url("../assets/img/Background.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+
+#navbar-placeholder {
+    min-height: 70px; /* Esta es la altura promedio de una navbar de Bootstrap */
+    width: 100%;
+}

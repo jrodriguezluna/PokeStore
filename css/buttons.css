@@ -1,0 +1,25 @@
+/* icono de pokebola que me robe de por ahi */ 
+.btn-pokeball {
+   display: inline-flex;
+   align-items: center;
+   gap: 0.5rem;
+   background-color: #fff;
+   border: 2px solid #222;
+   border-radius: 2rem;
+   padding: 0.3rem 1rem 0.3rem 0.3rem;
+   font-weight: 600;
+   color: #222;
+   transition: transform 0.2s ease;
+ }
+ .btn-pokeball:hover {
+   background-color: #f5f5f5;
+   color: #222;
+ }
+ .btn-pokeball:hover .pokeball-icon {
+   transform: rotate(25deg);
+ }
+ .pokeball-icon {
+   width: 1.6rem;
+   height: 1.6rem;
+   transition: transform 0.2s ease;
+ }
