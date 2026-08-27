@@ -14,3 +14,9 @@ body {
     height: 650px; 
     object-fit: contain; 
 }
+
+.card-img-top-inicio {
+    height: 450px; 
+    object-fit: contain; 
+    padding: 1rem; 
+}
