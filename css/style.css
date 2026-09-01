@@ -20,3 +20,46 @@ body {
     object-fit: contain; 
     padding: 1rem; 
 }
+
+.main-container {
+background-color: #ffffff;
+  width: 90%;
+  max-width: 1200px;
+  margin: 0 auto; 
+}
+
+/* style para pagina blog */
+.blog-card {
+  background-color: #e0e0e0; 
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+  margin-bottom: 25px;
+  border-radius: 4px;
+}
+
+.blog-info {
+  width: 45%;
+  text-align: left;
+}
+
+.blog-img {
+  width: 50%;
+}
+
+.blog-img img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.btn-ver {
+  display: inline-block;
+  padding: 8px 20px;
+  border: 2px solid #000;
+  background-color: #fffefe;
+  color: #000;
+  text-decoration: none;
+  margin-top: 15px;
+}
