@@ -23,6 +23,11 @@ const navbarHTML = `
         <li class="nav-item">
           <a class="nav-link" href="/pages/contacto.html">Contacto</a>
         </li>
+        <li class="nav-item">
+          <a class="nav-link text-success fw-bold" href="/pages/carrito.html">
+            Carrito (<span id="cart-counter">0</span>)
+          </a>
+        </li>
       </ul>
     </div>
   </div>
@@ -31,6 +36,25 @@ const navbarHTML = `
 
 // 1. Inyectamos el HTML de forma INSTANTÁNEA (sin fetch)
 document.getElementById('navbar-placeholder').innerHTML = navbarHTML;
+
+// Función para leer el carrito y sumar las cantidades
+function actualizarContadorCarrito() {
+    const carritoGuardado = localStorage.getItem('pokeCarrito');
+    const carrito = carritoGuardado ? JSON.parse(carritoGuardado) : [];
+    
+    // Sumamos la cantidad de todos los productos
+    const totalItems = carrito.reduce((suma, item) => suma + item.cantidad, 0);
+    
+    // Actualizamos el HTML
+    const contador = document.getElementById('cart-counter');
+    if (contador) {
+        contador.innerText = totalItems;
+    }
+}
+
+actualizarContadorCarrito();
+
+window.actualizarContadorNavbar = actualizarContadorCarrito;
 
 // 2. Ejecutamos la lógica de la clase active inmediatamente
 let urlActual = window.location.pathname.split('/').pop();

@@ -1,14 +1,13 @@
 // js/productos.js
 import { obtenerTodosLosProductos } from './productosService.js';
+import { agregarAlCarrito } from './carritoService.js';
 
 async function cargarPaginaProductos() {
     const productos = await obtenerTodosLosProductos();
     const contenedor = document.getElementById('contenedor-todos-los-productos');
     
-    // Limpiamos el contenedor
     contenedor.innerHTML = '';
 
-    // Iteramos sobre todos los productos para inyectarlos
     productos.forEach(prod => {
         contenedor.innerHTML += `
             <div class="col-12 col-md-6 col-lg-4">
@@ -30,11 +29,15 @@ async function cargarPaginaProductos() {
     });
 }
 
-// Función temporal expuesta al objeto window (para que funcione el onclick)
-window.añadirAlCarrito = function(idProducto) {
-    console.log("Se hizo clic para añadir el producto con ID:", idProducto);
-    // Aquí irá la lógica real del carrito más adelante
+window.añadirAlCarrito = async function(idProducto) {
+    await agregarAlCarrito(idProducto);
+    
+    // Disparamos la actualización visual de la navbar
+    if (window.actualizarContadorNavbar) {
+        window.actualizarContadorNavbar();
+    }
+    
+    alert(`¡Producto añadido!`);
 }
 
-// Ejecutamos la carga al iniciar el script
 cargarPaginaProductos();
