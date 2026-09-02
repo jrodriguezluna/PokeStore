@@ -36,10 +36,11 @@ body {
   padding: 10px;
   margin-bottom: 20px;
   border-radius: 10px;
+  border: 1px solid #ddd9d9;
 }
 
 .blog-info {
-  width: 45%;
+  width: 46%;
   text-align: center;
   font-size: 16px;
 }
@@ -63,4 +64,63 @@ body {
   color: #000;
   text-decoration: none;
   margin-top: 15px;
+}
+
+/* Style para Formulario */
+
+
+
+.boton-enviar{
+  width: 100%;
+  padding: 12px;
+  background-color: #feffda;
+  font-weight: bold;
+  font-size: 20px;
+  border: none;
+  cursor:pointer;
+  margin-top: 10px;
+  border-radius: 16px;
+}
+
+.contenedor-principal{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  padding: 20px;
+  box-sizing: border-box;
+  
+}
+
+.tarjeta-contacto {
+  background-color: #d0fff8;
+  width: 100%;
+  max-width: 500px;
+  padding: 32px;
+  border-radius: 16px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+  border: 1px solid #ddd9d9;
+}
+
+.titulo {
+  text-align: center;
+  font-weight: bold;
+  margin-top: 0;
+  margin-bottom: 24px;
+}
+
+.campos {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  font-weight: 620;
+}
+
+.campo-texto {
+  width: 100%;
+  padding: 5px 5px;
+  border: 2px solid #ced4da;
+  border-radius: 8px;
+  font-size: 1rem;
+  box-sizing: border-box;
 }
