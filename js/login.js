@@ -3,7 +3,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // Si ya hay una sesión activa, redirige al dashboard/panel
   if (localStorage.getItem("loggedInUser")) {
-    window.location.href = "index.html";
+    window.location.href = "/index.html";
     return;
   }
 
@@ -26,6 +26,10 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // 3. Buscar coincidencia exacta de correo y contraseña
     const validUser = users.find(user => user.email === email && user.password === password);
+
+    if (email || password == "admin@duoc.cl"){
+      window.location.href = "/pages/homeAdmin.html"
+    }
 
     if (validUser) {
       // Guardar el usuario activo en sesión
