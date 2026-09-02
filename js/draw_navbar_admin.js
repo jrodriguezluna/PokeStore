@@ -2,36 +2,27 @@
 const navbarHTML = `
 <nav class="navbar navbar-expand-lg bg-body-tertiary">
   <div class="container-fluid">
-    <a class="navbar-brand" href="/index.html"><h4 style="margin-left: 15px">PokeStore</h4></a>
+    <a class="navbar-brand" href="/pages/homeAdmin.html"><h4 style="margin-left: 15px">PokeStore</h4></a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarNav">
       <ul class="navbar-nav">
         <li class="nav-item">
-          <a class="nav-link" href="/index.html">Inicio</a>
+          <a class="nav-link" href="/pages/homeAdmin.html">Inicio</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="/pages/productos.html">Productos</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="/pages/nosotros.html">Nosotros</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="/pages/blogs.html">Blogs</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="/pages/contacto.html">Contacto</a>
+          <a class="nav-link" href="/pages/productosAdmin.html">Productos</a>
         </li>
         </ul>
         <ul class="navbar-nav ms-auto">
         <li class="nav-item" style="margin-right: 15px">
-          <a class="nav-link text-success fw-bold" href="/pages/carrito.html">
-            Carrito (<span id="cart-counter">0</span>)
+          <a class="nav-link text-success fw-bold" href="/pages/usuariosAdmin.html">
+            Usuarios
           </a>
         </li>
-        <li class="nav-item" style="margin-right: 15px">
-          <a class="nav-link fw-bold" href="/pages/inicioSesion.html">Iniciar Sesion</a>
+        <li class="nav-item" style="margin-right: 15px;">
+          <a class="nav-link fw-bold" href="/pages/inicioSesion.html" style="color: red;">Cerrar Sesion</a>
         </li>
       </ul>
     </div>
