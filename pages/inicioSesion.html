@@ -12,10 +12,34 @@
   <body>
     <div id="navbar-placeholder"></div>
     <script src="/js/draw_navbar.js"></script>
+    <script src="/js/login.js"></script>
 
     <!-- Esto es por mientras para redireccionar nada mas -->
-    <h2><a href="/pages/registro.html">Registro</a></h2>
     <h2><a href="/pages/homeAdmin.html">HomeAdmin</a></h2>
+
+<div class="page-wrapper">
+    <div class="contenedor-lr">
+      <div class="header-title">Inicio de sesión</div>
+
+      <form id="login-form" class="form-lr">
+        <div class="form-group-lr">
+          <label for="login-email">CORREO</label>
+          <input type="email" id="login-email" maxlength="100" required>
+        </div>
+
+        <div class="form-group-lr">
+          <label for="login-password">CONTRASEÑA</label>
+          <input type="password" id="login-password" minlength="4" maxlength="10" required>
+        </div>
+
+        <button type="submit" class="boton-enviar">Ingresar</button>
+        <p id="login-message" class="message"></p>
+
+        <p class="switch-link">¿No tienes cuenta? <a href="registro.html">Regístrate aquí</a></p>
+      </form>
+    </div>
+  </div>
+
 
   </body>
 </html>

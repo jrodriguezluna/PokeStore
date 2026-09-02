@@ -8,14 +8,58 @@
     <link rel="stylesheet" href="/css/buttons.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+  
   </head>
   <body>
     <div id="navbar-placeholder"></div>
     <script src="/js/draw_navbar.js"></script>
+    <script src="/js/register.js"></script>
 
     <!-- Esto es por mientras para redireccionar nada mas -->
-    <h2><a href="/pages/registro.html">Registro</a></h2>
-    <h2><a href="/pages/homeAdmin.html">HomeAdmin</a></h2>
+
+
+<div class="page-wrapper">
+  <div class="contenedor-lr">
+    <div class="header-title">Registro de usuario</div>
+
+    <form id="register-form" class="form-lr">
+      <div class="form-group-lr">
+        <label for="reg-fullname">NOMBRE COMPLETO</label>
+        <input type="text" id="reg-fullname" required>
+      </div>
+
+      <div class="form-group-lr">
+        <label for="reg-email">CORREO</label>
+        <input type="email" id="reg-email" required>
+      </div>
+
+      <div class="form-group-lr">
+        <label for="reg-confirm-email">CONFIRMAR CORREO</label>
+        <input type="email" id="reg-confirm-email" required>
+      </div>
+
+      <div class="form-group-lr">
+        <label for="reg-password">CONTRASEÑA</label>
+        <input type="password" id="reg-password" required>
+      </div>
+
+      <div class="form-group-lr">
+        <label for="reg-confirm-password">CONFIRMAR CONTRASEÑA</label>
+        <input type="password" id="reg-confirm-password" required>
+      </div>
+
+      <div class="form-group-lr">
+        <label for="reg-phone">TELEFONO (opcional)</label>
+        <input type="tel" id="reg-phone">
+      </div>
+
+      <button class="boton-enviar"type="submit">Registrarse</button>
+      <p id="reg-message" class="message"></p>
+    </form>
+  </div>
+</div>
+  <script src="register.js"></script>
+  
 
   </body>
 </html>

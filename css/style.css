@@ -124,3 +124,61 @@ body {
   font-size: 1rem;
   box-sizing: border-box;
 }
+
+
+/* Login Register*/
+
+.page-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  width: 100%;
+}
+
+.contenedor-lr{
+  background: #d0fff8;
+  width: 100%;
+  max-width: 400px;
+  border-radius: 4px;
+  overflow: hidden;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+  border-radius: 15px;
+}
+
+.header-title {
+  color: #333333;
+  padding: 0.8rem 1rem;
+  font-weight: bold;
+  font-size: 0.95rem;
+  text-align: center;
+}
+
+.form-lr {
+  padding: 0 20px 20px 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.form-group-lr {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 4px;
+}
+
+.form-group-lr label {
+  font-size: 0.85rem;
+  font-weight: bold;
+  color: #333333;
+}
+
+.form-group-lr input {
+  width: 100%;
+  padding: 8px 10px;
+  border: 2px solid #ced4da;
+  border-radius: 8px;
+  font-size: 1rem;
+  box-sizing: border-box;
+}
