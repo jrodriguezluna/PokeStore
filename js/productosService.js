@@ -32,3 +32,18 @@ export async function obtenerProductosRecientes() {
     // Tomamos los últimos 9 del arreglo (o los primeros 9, tú decides la lógica)
     return productosCatalogo.slice(0, 9);
 }
+
+// Funcion para buscar id y cambiar info
+export function actualizarProducto(id, datosNuevos){
+    const index = productosCatalogo.findIndex(i => i.id === parseInt(id));
+
+    if (index !== -1){
+        productosCatalogo[index] = {
+            ...productosCatalogo[index],
+            ...datosNuevos
+        };
+        console.log("Actualizado con exito", productosCatalogo[index]);
+        return true;
+    }return false;
+
+}
