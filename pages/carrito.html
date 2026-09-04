@@ -3,55 +3,128 @@
   <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Carrito</title>
+    <title>Carrito de Compras - PokeStore</title>
     <link rel="stylesheet" href="/css/style.css">
     <link rel="stylesheet" href="/css/buttons.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+    <style>
+      .btn-qty {
+        width: 32px;
+        height: 32px;
+        padding: 0;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        font-weight: bold;
+      }
+    </style>
   </head>
   <body class="bg-light">
 
-    <div id="navbar-placeholder">
-      <!-- contenido dinamico -->
-    </div>
+    <div id="navbar-placeholder"></div>
     <script src="/js/draw_navbar.js"></script>
 
-    <div class="container py-5">
-        <h2 class="mb-4">Mi carrito de compras</h2>
-        
-        <div class="row">
-            <!-- Columna Izquierda: Lista de Productos -->
-            <div class="col-lg-8">
-                <div class="card shadow-sm mb-4">
-                    <div class="card-body" id="contenedor-items-carrito">
-                        <!-- El JavaScript inyectará los productos aquí -->
-                        <p class="text-muted">Cargando carrito...</p>
-                    </div>
-                </div>
+    <main class="container py-5">
+      <h2 class="fw-bold mb-4">🛒 Mi carrito de compras</h2>
+      
+      <div class="row g-4">
+        <!-- Columna Izquierda: Lista de Productos -->
+        <div class="col-lg-8">
+          <div class="card shadow-sm border-0 mb-4">
+            <div class="card-body p-4" id="contenedor-items-carrito">
+              <p class="text-muted">Cargando carrito...</p>
             </div>
-
-            <!-- Columna Derecha: Resumen de Compra -->
-            <div class="col-lg-4">
-                <div class="card shadow-sm">
-                    <div class="card-body">
-                        <h5 class="card-title mb-4">Resumen</h5>
-                        <div class="d-flex justify-content-between mb-3">
-                            <span>Subtotal:</span>
-                            <span class="fw-bold" id="resumen-subtotal">$0.00</span>
-                        </div>
-                        <hr>
-                        <div class="d-flex justify-content-between mb-4">
-                            <span class="fs-5">TOTAL:</span>
-                            <span class="fw-bold fs-5 text-success" id="resumen-total">$0.00</span>
-                        </div>
-                        <button class="btn btn-success w-100 btn-lg">PAGAR</button>
-                    </div>
-                </div>
-            </div>
+          </div>
+          
+          <div class="d-flex justify-content-between align-items-center">
+            <a href="/pages/productos.html" class="btn btn-outline-primary">
+              ← Seguir comprando
+            </a>
+            <button id="btn-vaciar-carrito" class="btn btn-outline-danger btn-sm">
+              Vaciar carrito completo
+            </button>
+          </div>
         </div>
+
+        <!-- Columna Derecha: Resumen y Cupón de Descuento (Mockup Figura 15) -->
+        <div class="col-lg-4">
+          <div class="card shadow-sm border-0 sticky-top" style="top: 85px;">
+            <div class="card-body p-4">
+              <h5 class="card-title fw-bold mb-3">Resumen de Compra</h5>
+              
+              <div class="d-flex justify-content-between mb-2">
+                <span class="text-muted">Subtotal:</span>
+                <span class="fw-bold" id="resumen-subtotal">$0.00</span>
+              </div>
+
+              <!-- Fila Descuento Dinámica -->
+              <div class="d-flex justify-content-between mb-2 text-success" id="fila-descuento" style="display: none !important;">
+                <span>Descuento (<span id="porcentaje-descuento">0%</span>):</span>
+                <span class="fw-bold" id="monto-descuento">-$0.00</span>
+              </div>
+
+              <hr>
+
+              <!-- Cupón de Descuento (Mockup Figura 15) -->
+              <div class="mb-3">
+                <label for="input-cupon" class="form-label small fw-semibold text-muted">¿Tienes un cupón de descuento?</label>
+                <div class="input-group">
+                  <input type="text" id="input-cupon" class="form-control form-control-sm" placeholder="Ej: POKE10 o DUOC20">
+                  <button class="btn btn-outline-dark btn-sm fw-bold" type="button" id="btn-aplicar-cupon">APLICAR</button>
+                </div>
+                <div id="mensaje-cupon" class="small mt-1" style="min-height: 18px;"></div>
+                <small class="text-muted" style="font-size: 0.75rem;">* Cupones de prueba: <code>POKE10</code> (10% OFF) y <code>DUOC20</code> (20% OFF)</small>
+              </div>
+
+              <hr>
+
+              <div class="d-flex justify-content-between align-items-baseline mb-4">
+                <span class="fs-5 fw-bold">TOTAL:</span>
+                <span class="fw-bold fs-3 text-success" id="resumen-total">$0.00</span>
+              </div>
+
+              <button class="btn btn-success w-100 btn-lg fw-bold py-3 shadow-sm" id="btn-pagar">
+                PAGAR
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <!-- Modal de Confirmación de Pago -->
+    <div class="modal fade" id="modalPagoExitoso" tabindex="-1" aria-labelledby="modalPagoLabel" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content border-0 shadow">
+          <div class="modal-header bg-success text-white">
+            <h5 class="modal-title fw-bold" id="modalPagoLabel">¡Compra Realizada con Éxito! 🎉</h5>
+            <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body text-center py-4">
+            <img src="/assets/img/nosotros/pokeball2.png" alt="Pokeball" width="70" class="mb-3">
+            <h4>¡Gracias por tu compra en PokeStore!</h4>
+            <p class="text-muted">Tu pedido ha sido procesado exitosamente. Recibirás los detalles de despacho en tu correo electrónico.</p>
+            <div class="alert alert-light border text-start small">
+              <strong>Número de orden:</strong> #PK-<span id="modal-orden-id">0000</span><br>
+              <strong>Total pagado:</strong> <span id="modal-orden-total" class="fw-bold text-success">$0.00</span>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <a href="/index.html" class="btn btn-primary w-100 fw-bold">Volver al Inicio</a>
+          </div>
+        </div>
+      </div>
     </div>
+
+    <footer class="bg-dark text-white py-4 mt-auto">
+      <div class="container text-center">
+        <p class="mb-1 fw-bold">PokeStore © 2026 - Todos los derechos reservados</p>
+        <small class="text-muted">Desarrollado para Evaluación 1 Fullstack II - Duoc UC</small>
+      </div>
+    </footer>
 
     <!-- Script modular para la lógica del carrito -->
     <script type="module" src="/js/carrito.js"></script>
-</body>
+  </body>
 </html>

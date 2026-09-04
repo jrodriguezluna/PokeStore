@@ -13,53 +13,89 @@
     <div id="navbar-placeholder"></div>
     <script src="/js/draw_navbar.js"></script>
 
+    <!-- Hero Original Restaurado con Botón "Ver productos" -->
     <section class="py-5 text-dark">
-        <div class="container my-5">
-            <div class="row align-items-center">
-                <div class="col-lg-6"> 
-                    <h1 class="display-2 fw-bold mb-3">Bienvenido a PokeStore</h1>
-                    <p class="lead text-muted">Nuestra tienda ofrece la mayor variedad de productos pokémon para todos los gustos</p>
+      <div class="container my-5">
+        <div class="row align-items-center">
+          <div class="col-lg-6"> 
+            <h1 class="display-2 fw-bold mb-3">Bienvenido a PokeStore</h1>
+            <p class="lead text-muted mb-3">Nuestra tienda ofrece la mayor variedad de productos pokémon para todos los gustos</p>
+            <a href="/pages/productos.html" class="btn btn-dark fw-bold px-4 py-2 mt-2 shadow-sm">
+              Ver productos
+            </a>
+          </div>
+          <div class="col-lg-5 offset-lg-1"> 
+            <div id="carouselControls" class="carousel slide carousel-dark" data-bs-ride="carousel">
+              <div class="carousel-inner">
+                <div class="carousel-item active">
+                  <img class="d-block w-100" src="/assets/img/products/pikachu_chonk.png" alt="First slide">
                 </div>
-                <div class="col-lg-5"> 
-                    <div id="carouselControls" class="carousel slide carousel-dark" data-bs-ride="carousel">
-                        <div class="carousel-inner">
-                          <div class="carousel-item active">
-                            <img class="d-block w-100" src="/assets/img/products/pikachu_chonk.png" alt="First slide">
-                          </div>
-                          <div class="carousel-item">
-                            <img class="d-block w-100" src="/assets/img/products/evee_tamagotchi.png" alt="Second slide">
-                          </div>
-                          <div class="carousel-item">
-                            <img class="d-block w-100" src="/assets/img/products/evolved_starters_lego.png" alt="Third slide">
-                          </div>
-                        </div>
-                        <a class="carousel-control-prev" href="#carouselControls" role="button" data-bs-slide="prev">
-                          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                          <span class="sr-only"></span>
-                        </a>
-                        <a class="carousel-control-next" href="#carouselControls" role="button" data-bs-slide="next">
-                          <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                          <span class="sr-only"></span>
-                        </a>
-                    </div>
+                <div class="carousel-item">
+                  <img class="d-block w-100" src="/assets/img/products/evee_tamagotchi.png" alt="Second slide">
                 </div>
+                <div class="carousel-item">
+                  <img class="d-block w-100" src="/assets/img/products/evolved_starters_lego.png" alt="Third slide">
+                </div>
+              </div>
+              <button class="carousel-control-prev" type="button" data-bs-target="#carouselControls" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Anterior</span>
+              </button>
+              <button class="carousel-control-next" type="button" data-bs-target="#carouselControls" data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Siguiente</span>
+              </button>
             </div>
+          </div>
         </div>
+      </div>
     </section>
 
+    <!-- Listado de Productos Destacados -->
     <section class="py-5">
-    <div class="container">
-        <h2 class="mb-5">Los productos que amas al mejor precio:</h2>
-        <div class="row g-4" id="contenedor-productos-inicio">
-            <!-- contenido dinámico -->
+      <div class="container">
+        <div class="d-flex justify-content-between align-items-center mb-5">
+          <h2 class="mb-0">Los productos que amas al mejor precio:</h2>
+          <a href="/pages/productos.html" class="btn btn-outline-primary fw-semibold">Ver catálogo completo →</a>
         </div>
-    </div>
+        <div class="row g-4" id="contenedor-productos-inicio">
+          <!-- contenido dinámico -->
+        </div>
+      </div>
     </section>
+
+    <!-- Footer Semántico -->
+    <footer class="bg-dark text-white pt-5 pb-4 mt-5">
+      <div class="container">
+        <div class="row g-4">
+          <div class="col-lg-4 col-md-6">
+            <h5 class="fw-bold text-primary mb-3">PokeStore</h5>
+            <p class="text-muted small">
+              Tu tienda oficial de productos Pokémon en Chile. Figuras, cartas TCG, peluches, ropa y coleccionables con envíos a todo el país.
+            </p>
+            <p class="text-muted small mb-0">© 2026 PokeStore Chile. Evaluación 1 Fullstack II - Duoc UC.</p>
+          </div>
+          <div class="col-lg-4 col-md-6">
+            <h5 class="fw-bold mb-3">Categorías</h5>
+            <ul class="list-unstyled text-muted small">
+              <li class="mb-2"><a href="/pages/productos.html" class="text-secondary text-decoration-none">Peluches y Figuras</a></li>
+              <li class="mb-2"><a href="/pages/productos.html" class="text-secondary text-decoration-none">Cartas Pokémon TCG</a></li>
+              <li class="mb-2"><a href="/pages/productos.html" class="text-secondary text-decoration-none">Ropa y Accesorios</a></li>
+              <li class="mb-2"><a href="/pages/productos.html" class="text-secondary text-decoration-none">Hogar y Coleccionables</a></li>
+            </ul>
+          </div>
+          <div class="col-lg-4 col-md-12">
+            <h5 class="fw-bold mb-3">Boletín Informativo</h5>
+            <p class="text-muted small">Suscríbete para recibir noticias de nuevas temporadas y descuentos exclusivos.</p>
+            <form class="d-flex gap-2" onsubmit="event.preventDefault(); alert('¡Gracias por suscribirte al newsletter de PokeStore!'); this.reset();">
+              <input type="email" class="form-control form-control-sm" placeholder="Ingresa tu correo" required>
+              <button class="btn btn-primary btn-sm px-3 fw-bold" type="submit">Suscribirse</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </footer>
+
     <script type="module" src="/js/index.js"></script>
   </body>
-  
-  <footer>
-
-  </footer>
-
 </html>

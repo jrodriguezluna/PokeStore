@@ -1,41 +1,77 @@
 // js/carritoService.js
 
 export async function obtenerCarrito() {
-
-    const carritoGuardado = localStorage.getItem('pokeCarrito');
-    return carritoGuardado ? JSON.parse(carritoGuardado) : [];
-
-    // En un futuro podemos utilizar esta lógica para sacar info de una base de datos
-    // const respuesta = await fetch('http://localhost:8080/api/carrito');
-    // return await respuesta.json();
+  const carritoGuardado = localStorage.getItem('pokeCarrito');
+  return carritoGuardado ? JSON.parse(carritoGuardado) : [];
 }
 
 export async function agregarAlCarrito(productoId, cantidad = 1) {
-    const carrito = await obtenerCarrito();
-    
-    const productoExistente = carrito.find(item => item.id === productoId);
+  const carrito = await obtenerCarrito();
+  const idNum = parseInt(productoId, 10);
+  const cantNum = parseInt(cantidad, 10) || 1;
 
-    if (productoExistente) {
-        productoExistente.cantidad += cantidad; 
-    } else {
-        carrito.push({ id: productoId, cantidad: cantidad });
-    }
+  const productoExistente = carrito.find(item => item.id === idNum);
 
-    try {
-        localStorage.setItem('pokeCarrito', JSON.stringify(carrito));
-    
-        document.dispatchEvent(new CustomEvent('carrito:actualizado'));
-        return carrito;
-    } catch (error) {
-        console.error("Error al guardar en el carrito:", error);
-    }
+  if (productoExistente) {
+    productoExistente.cantidad += cantNum;
+  } else {
+    carrito.push({ id: idNum, cantidad: cantNum });
+  }
 
+  try {
+    localStorage.setItem('pokeCarrito', JSON.stringify(carrito));
+    document.dispatchEvent(new CustomEvent('carrito:actualizado'));
     return carrito;
+  } catch (error) {
+    console.error("Error al guardar en el carrito:", error);
+  }
 
-    // Lógica para agregar info desde una api...
-    // await fetch('http://localhost:8080/api/carrito', {
-    //     method: 'POST',
-    //     headers: { 'Content-Type': 'application/json' },
-    //     body: JSON.stringify({ id: productoId, cantidad: cantidad })
-    // });
+  return carrito;
+}
+
+export async function actualizarCantidadCarrito(productoId, nuevaCantidad) {
+  let carrito = await obtenerCarrito();
+  const idNum = parseInt(productoId, 10);
+  const cantNum = parseInt(nuevaCantidad, 10);
+
+  if (cantNum <= 0) {
+    // Si la cantidad es menor o igual a cero, se elimina del carrito
+    carrito = carrito.filter(item => item.id !== idNum);
+  } else {
+    const item = carrito.find(item => item.id === idNum);
+    if (item) {
+      item.cantidad = cantNum;
+    }
+  }
+
+  try {
+    localStorage.setItem('pokeCarrito', JSON.stringify(carrito));
+    document.dispatchEvent(new CustomEvent('carrito:actualizado'));
+    return carrito;
+  } catch (error) {
+    console.error("Error al actualizar cantidad en el carrito:", error);
+  }
+
+  return carrito;
+}
+
+export async function eliminarDelCarrito(productoId) {
+  let carrito = await obtenerCarrito();
+  const idNum = parseInt(productoId, 10);
+  carrito = carrito.filter(item => item.id !== idNum);
+
+  try {
+    localStorage.setItem('pokeCarrito', JSON.stringify(carrito));
+    document.dispatchEvent(new CustomEvent('carrito:actualizado'));
+    return carrito;
+  } catch (error) {
+    console.error("Error al eliminar del carrito:", error);
+  }
+
+  return carrito;
+}
+
+export function vaciarCarrito() {
+  localStorage.removeItem('pokeCarrito');
+  document.dispatchEvent(new CustomEvent('carrito:actualizado'));
 }

@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Detalle del Producto - PokeStore</title>
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/buttons.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+    <style>
+      .miniatura-img {
+        width: 80px;
+        height: 80px;
+        object-fit: contain;
+        cursor: pointer;
+        border: 2px solid #dee2e6;
+        border-radius: 8px;
+        padding: 4px;
+        transition: all 0.2s ease-in-out;
+      }
+      .miniatura-img:hover, .miniatura-img.activa {
+        border-color: #0d6efd;
+        transform: scale(1.05);
+        box-shadow: 0 4px 10px rgba(13, 110, 253, 0.25);
+      }
+      .card-img-main {
+        max-height: 420px;
+        width: 100%;
+        object-fit: contain;
+        background-color: #ffffff;
+      }
+    </style>
+  </head>
+  <body class="bg-light">
+    <div id="navbar-placeholder"></div>
+    <script src="/js/draw_navbar.js"></script>
+
+    <main class="container py-4">
+      <!-- Breadcrumb dinámico -->
+      <nav aria-label="breadcrumb" class="mb-4">
+        <ol class="breadcrumb" id="breadcrumb-contenedor">
+          <li class="breadcrumb-item"><a href="/index.html">Inicio</a></li>
+          <li class="breadcrumb-item"><a href="/pages/productos.html">Productos</a></li>
+          <li class="breadcrumb-item active" aria-current="page" id="breadcrumb-producto">Cargando...</li>
+        </ol>
+      </nav>
+
+      <!-- Contenedor Principal del Detalle (Mockup Figura 9) -->
+      <div class="card shadow-sm border-0 p-4 mb-5" id="contenedor-detalle">
+        <div class="row g-4 align-items-center">
+          
+          <!-- Columna Imagen y Miniaturas -->
+          <div class="col-lg-6">
+            <div class="p-3 bg-white border rounded text-center mb-3">
+              <img id="detalle-imagen-principal" src="/assets/img/poke_high_five.gif" class="card-img-main img-fluid" alt="Imagen del producto">
+            </div>
+            
+            <!-- Miniaturas / Galería -->
+            <div class="d-flex gap-3 justify-content-center flex-wrap" id="detalle-miniaturas">
+              <!-- Miniaturas inyectadas por JS -->
+            </div>
+          </div>
+
+          <!-- Columna Información de Compra -->
+          <div class="col-lg-6 ps-lg-4">
+            <span class="badge bg-primary mb-2" id="detalle-categoria">Categoría</span>
+            <small class="text-muted ms-2" id="detalle-codigo">Código: --</small>
+            
+            <h1 class="display-6 fw-bold mb-2 text-dark" id="detalle-nombre">Nombre del Producto</h1>
+            
+            <div class="d-flex align-items-baseline gap-3 my-3">
+              <span class="fs-2 fw-bold text-success" id="detalle-precio">$0.00</span>
+              <span class="badge bg-success-subtle text-success border border-success px-2 py-1" id="detalle-stock">En Stock: 0 unidades</span>
+            </div>
+
+            <hr>
+
+            <h6 class="fw-bold text-secondary">Descripción:</h6>
+            <p class="text-muted leading-relaxed" id="detalle-descripcion">
+              Cargando descripción del producto...
+            </p>
+
+            <hr class="my-4">
+
+            <!-- Selector de Cantidad y Botón Añadir al Carrito -->
+            <div class="row g-3 align-items-center mb-3">
+              <div class="col-auto">
+                <label for="detalle-cantidad" class="fw-bold me-2">Cantidad:</label>
+              </div>
+              <div class="col-auto">
+                <div class="input-group" style="width: 140px;">
+                  <button class="btn btn-outline-secondary" type="button" id="btn-restar-cant">-</button>
+                  <input type="number" id="detalle-cantidad" class="form-control text-center fw-bold" value="1" min="1" max="99">
+                  <button class="btn btn-outline-secondary" type="button" id="btn-sumar-cant">+</button>
+                </div>
+              </div>
+            </div>
+
+            <button class="btn btn-primary btn-lg w-100 py-3 fw-bold d-flex align-items-center justify-content-center gap-2 shadow-sm" id="btn-agregar-carrito">
+              Añadir al carrito
+            </button>
+
+            <!-- Alerta dinámica de confirmación -->
+            <div id="alerta-agregado" class="alert alert-success mt-3 d-none text-center" role="alert">
+              ¡Producto añadido al carrito con éxito!
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Sección Productos Relacionados (Mockup Figura 9) -->
+      <section class="mt-5">
+        <h3 class="fw-bold mb-4">Productos Relacionados</h3>
+        <div class="row g-4" id="contenedor-productos-relacionados">
+          <!-- Inyectado por JS -->
+        </div>
+      </section>
+    </main>
+
+    <footer class="bg-dark text-white py-4 mt-5">
+      <div class="container text-center">
+        <p class="mb-1 fw-bold">PokeStore © 2026 - Todos los derechos reservados</p>
+        <small class="text-muted">Desarrollado para Evaluación 1 Fullstack II - Duoc UC</small>
+      </div>
+    </footer>
+
+    <script type="module" src="/js/detalleProducto.js"></script>
+  </body>
+</html>
+

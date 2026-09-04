@@ -21,7 +21,7 @@ function renderizarNavbar() {
     const esAdminOVendedor = usuarioActivo.rol === 'Administrador' || usuarioActivo.rol === 'Vendedor';
     const linkAdminHTML = esAdminOVendedor
       ? `<li class="nav-item">
-           <a class="nav-link text-warning fw-bold" href="/pages/homeAdmin.html">⚙️ Panel Admin</a>
+           <a class="nav-link text-warning fw-bold" href="/pages/homeAdmin.html">Panel Admin</a>
          </li>`
       : '';
 

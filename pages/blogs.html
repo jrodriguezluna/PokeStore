@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PokeStore</title>
+    <title>Blogs y Noticias - PokeStore</title>
     <link rel="stylesheet" href="/css/style.css">
     <link rel="stylesheet" href="/css/buttons.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
@@ -12,33 +12,53 @@
   <body>
     <div id="navbar-placeholder"></div>
     <script src="/js/draw_navbar.js"></script>
-<div class="main-container">
-    <h2 style="text-align: center;">Noticias importantes</h>
-  <div class="blog-card">
-  <div class="blog-info">
-    <h3>Como identificar cartas graduadas falsas</h3>
-    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec consequat sed eros in imperdiet. Etiam ut facilisis nibh. Curabitur ut massa non nibh sollicitudin pulvinar nec quis odio. Nunc non mi et massa scelerisque hendrerit. Ut semper commodo nibh, non fringilla lacus. Pellentesque habitant morbi.</p>
-    <a href="#" class="btn-ver">Ver guia</a>
-  </div>
-  <div class="blog-img">
-    <img src="/assets/img/blogs/CartasGradeadas.jpg" alt="Noticia Pokémon">
-  </div>
-  </div>
 
+    <main class="main-container py-5">
+      <div class="text-center mb-5">
+        <h1 class="fw-bold display-5">Noticias y Guías Pokémon</h1>
+        <p class="text-muted">Descubre curiosidades, tutoriales de colección y novedades del universo Pokémon</p>
+      </div>
 
-<div class="blog-card">
-  <div class="blog-info">
-    <h3>Los mejores productos para tus cartas Pokemon</h3>
-    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec consequat sed eros in imperdiet. Etiam ut facilisis nibh. Curabitur ut massa non nibh sollicitudin pulvinar nec quis odio. Nunc non mi et massa scelerisque hendrerit. Ut semper commodo nibh, non fringilla lacus. Pellentesque habitant morbi.</p>
-    <a href="#" class="btn-ver">Ver Productos</a>
-  </div>
-  <div class="blog-img">
-    <img src="/assets/img/blogs/AlbumCartas.webp" alt="Noticia Pokémon">
-  </div>
-</div>
+      <!-- Noticia 1 (Mockup Figura 6) -->
+      <article class="blog-card shadow-sm">
+        <div class="blog-info">
+          <span class="badge bg-danger mb-2">Guía Coleccionistas</span>
+          <h3 class="fw-bold">Cómo identificar cartas graduadas falsas</h3>
+          <p class="text-muted">
+            El mercado de cartas Pokémon TCG de alto valor ha crecido enormemente, y con él las réplicas en cápsulas PSA o Beckett. Aprende a detectar micrograbados, etiquetas y sellos auténticos para proteger tu inversión.
+          </p>
+          <a href="/pages/detalleBlog1.html" class="btn btn-outline-dark fw-bold px-4 py-2 mt-2">
+            Ver guía completa →
+          </a>
+        </div>
+        <div class="blog-img">
+          <img src="/assets/img/blogs/CartasGradeadas.jpg" alt="Cartas Pokémon Graduadas">
+        </div>
+      </article>
 
+      <!-- Noticia 2 (Mockup Figura 6) -->
+      <article class="blog-card shadow-sm">
+        <div class="blog-info">
+          <span class="badge bg-primary mb-2">Accesorios & Tips</span>
+          <h3 class="fw-bold">Los mejores productos para tus cartas Pokémon</h3>
+          <p class="text-muted">
+            Mantener tus cartas en estado Mint o Near Mint requiere los materiales adecuados: micas perfect fit, toploaders libres de ácido y carpetas con cierre hermético. Revisa nuestras recomendaciones profesionales.
+          </p>
+          <a href="/pages/detalleBlog2.html" class="btn btn-outline-dark fw-bold px-4 py-2 mt-2">
+            Ver artículo completo →
+          </a>
+        </div>
+        <div class="blog-img">
+          <img src="/assets/img/blogs/AlbumCartas.webp" alt="Álbum y cartas Pokémon">
+        </div>
+      </article>
+    </main>
 
-
-</div>
+    <footer class="bg-dark text-white py-4 mt-auto">
+      <div class="container text-center">
+        <p class="mb-1 fw-bold">PokeStore © 2026 - Todos los derechos reservados</p>
+        <small class="text-muted">Desarrollado para Evaluación 1 Fullstack II - Duoc UC</small>
+      </div>
+    </footer>
   </body>
 </html>
