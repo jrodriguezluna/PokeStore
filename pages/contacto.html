@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PokeStore</title>
+    <title>Contacto - PokeStore</title>
     <link rel="stylesheet" href="/css/style.css">
     <link rel="stylesheet" href="/css/buttons.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
@@ -13,28 +13,49 @@
     <div id="navbar-placeholder"></div>
     <script src="/js/draw_navbar.js"></script>
 
-<h1 style="text-align: center;">PokeStore</h1>
-<div class="contenedor-principal">
-  <div class="tarjeta-contacto">
-    <h3 class="titulo">Formulario de contacto</h3>
-    <form class="formulario">
+    <main class="contenedor-principal">
+      <div class="tarjeta-contacto">
+        <!-- Logo y nombre según mockup Figura 7 -->
+        <div class="text-center mb-3">
+          <img src="/assets/img/nosotros/pokeball2.png" alt="Logo PokeStore" style="width: 50px; height: 50px; object-fit: contain;">
+          <h4 class="fw-bold mt-1">PokeStore</h4>
+        </div>
 
-      <div class="campos">
-        <label for="inputName">Nombre Completo</label>
-        <input type="text" id="inputName" class="campo-texto">
-      </div>
-      <div class="campos">
-        <label for="inputEmail">Email</label>
-        <input type="email" id="inputEmail" class="campo-texto">
-      </div>
-      <div class="campos">
-        <label for="inputContent" class="form-label fw-semibold">Contenido</label>
-        <textarea style="resize: none;" class="campo-texto" id="inputContent" rows="4"></textarea>
-      </div>
-      <button type="submit" class="boton-enviar">Enviar</button>
-    </form>
-  </div>
-</div>
+        <h3 class="titulo">Formulario de Contacto</h3>
+        
+        <form id="contacto-form" class="formulario" novalidate>
+          <div class="campos mb-3">
+            <label for="contacto-nombre">Nombre Completo *</label>
+            <input type="text" id="contacto-nombre" class="campo-texto" placeholder="Tu nombre completo" maxlength="100" required>
+          </div>
 
+          <div class="campos mb-3">
+            <label for="contacto-email">Correo Electrónico (@duoc.cl, @profesor.duoc.cl o @gmail.com) *</label>
+            <input type="email" id="contacto-email" class="campo-texto" placeholder="correo@duoc.cl" maxlength="100" required>
+          </div>
+
+          <div class="campos mb-3">
+            <div class="d-flex justify-content-between align-items-center">
+              <label for="contacto-comentario">Comentario / Mensaje *</label>
+              <span id="contador-comentario" class="contador-caracteres">0 / 500</span>
+            </div>
+            <textarea style="resize: none;" class="campo-texto" id="contacto-comentario" rows="4" maxlength="500" placeholder="Escribe aquí tu consulta o mensaje..." required></textarea>
+          </div>
+
+          <button type="submit" class="boton-enviar">Enviar Mensaje</button>
+          
+          <div id="contacto-mensaje" class="text-center mt-3 fw-semibold" style="min-height: 24px;"></div>
+        </form>
+      </div>
+    </main>
+
+    <footer class="bg-dark text-white py-4 mt-auto">
+      <div class="container text-center">
+        <p class="mb-1 fw-bold">PokeStore © 2026 - Todos los derechos reservados</p>
+        <small class="text-muted">Desarrollado para Evaluación 1 Fullstack II - Duoc UC</small>
+      </div>
+    </footer>
+
+    <script type="module" src="/js/contacto.js"></script>
   </body>
 </html>

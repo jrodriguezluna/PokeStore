@@ -3,63 +3,115 @@
   <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Registro</title>
+    <title>Registro de Usuario - PokeStore</title>
     <link rel="stylesheet" href="/css/style.css">
     <link rel="stylesheet" href="/css/buttons.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
-  
   </head>
   <body>
     <div id="navbar-placeholder"></div>
     <script src="/js/draw_navbar.js"></script>
-    <script src="/js/register.js"></script>
 
-    <!-- Esto es por mientras para redireccionar nada mas -->
+    <main class="page-wrapper">
+      <div class="contenedor-lr registro-ancho">
+        <div class="header-title">Registro de Usuario</div>
 
+        <form id="register-form" class="form-lr" novalidate>
+          <!-- RUN / RUT chileno -->
+          <div class="form-group-lr">
+            <label for="reg-run">RUN (sin puntos ni guion, ej: 19000001K) *</label>
+            <input type="text" id="reg-run" placeholder="Ej: 19000001K" maxlength="9" required autocomplete="off">
+          </div>
 
-<div class="page-wrapper">
-  <div class="contenedor-lr">
-    <div class="header-title">Registro de usuario</div>
+          <!-- Nombres y Apellidos -->
+          <div class="form-row-2col">
+            <div class="form-group-lr">
+              <label for="reg-nombre">NOMBRE *</label>
+              <input type="text" id="reg-nombre" placeholder="Tu nombre" maxlength="50" required>
+            </div>
+            <div class="form-group-lr">
+              <label for="reg-apellidos">APELLIDOS *</label>
+              <input type="text" id="reg-apellidos" placeholder="Tus apellidos" maxlength="100" required>
+            </div>
+          </div>
 
-    <form id="register-form" class="form-lr">
-      <div class="form-group-lr">
-        <label for="reg-fullname">NOMBRE COMPLETO</label>
-        <input type="text" id="reg-fullname" required>
+          <!-- Correo y Confirmación de Correo -->
+          <div class="form-row-2col">
+            <div class="form-group-lr">
+              <label for="reg-email">CORREO (@duoc.cl, @profesor.duoc.cl o @gmail.com) *</label>
+              <input type="email" id="reg-email" placeholder="usuario@duoc.cl" maxlength="100" required>
+            </div>
+            <div class="form-group-lr">
+              <label for="reg-confirm-email">CONFIRMAR CORREO *</label>
+              <input type="email" id="reg-confirm-email" placeholder="Repite tu correo" maxlength="100" required>
+            </div>
+          </div>
+
+          <!-- Contraseña y Confirmar Contraseña -->
+          <div class="form-row-2col">
+            <div class="form-group-lr">
+              <label for="reg-password">CONTRASEÑA (4 a 10 caracteres) *</label>
+              <input type="password" id="reg-password" minlength="4" maxlength="10" placeholder="••••••••" required>
+            </div>
+            <div class="form-group-lr">
+              <label for="reg-confirm-password">CONFIRMAR CONTRASEÑA *</label>
+              <input type="password" id="reg-confirm-password" minlength="4" maxlength="10" placeholder="••••••••" required>
+            </div>
+          </div>
+
+          <!-- Teléfono y Fecha de Nacimiento (Opcionales) -->
+          <div class="form-row-2col">
+            <div class="form-group-lr">
+              <label for="reg-phone">TELÉFONO (opcional)</label>
+              <input type="tel" id="reg-phone" placeholder="+56 9 1234 5678" maxlength="15">
+            </div>
+            <div class="form-group-lr">
+              <label for="reg-birthdate">FECHA DE NACIMIENTO (opcional)</label>
+              <input type="date" id="reg-birthdate">
+            </div>
+          </div>
+
+          <!-- Región y Comuna (Dinámico en cascada) -->
+          <div class="form-row-2col">
+            <div class="form-group-lr">
+              <label for="reg-region">REGIÓN *</label>
+              <select id="reg-region" required>
+                <option value="">-- Seleccione una región --</option>
+              </select>
+            </div>
+            <div class="form-group-lr">
+              <label for="reg-comuna">COMUNA *</label>
+              <select id="reg-comuna" required disabled>
+                <option value="">-- Seleccione una comuna --</option>
+              </select>
+            </div>
+          </div>
+
+          <!-- Dirección -->
+          <div class="form-group-lr">
+            <label for="reg-direccion">DIRECCIÓN (calle, número, depto) *</label>
+            <input type="text" id="reg-direccion" placeholder="Av. Siempre Viva 742" maxlength="300" required>
+          </div>
+
+          <button class="boton-enviar" type="submit">Registrarse</button>
+          
+          <div id="reg-message" class="text-center mt-2 fw-semibold" style="min-height: 24px;"></div>
+
+          <p class="text-center mt-2 mb-0 small">
+            ¿Ya tienes cuenta? <a href="/pages/inicioSesion.html" class="fw-bold">Inicia sesión aquí</a>
+          </p>
+        </form>
       </div>
+    </main>
 
-      <div class="form-group-lr">
-        <label for="reg-email">CORREO</label>
-        <input type="email" id="reg-email" required>
+    <footer class="bg-dark text-white py-4 mt-auto">
+      <div class="container text-center">
+        <p class="mb-1 fw-bold">PokeStore © 2026 - Todos los derechos reservados</p>
+        <small class="text-muted">Desarrollado para Evaluación 1 Fullstack II - Duoc UC</small>
       </div>
+    </footer>
 
-      <div class="form-group-lr">
-        <label for="reg-confirm-email">CONFIRMAR CORREO</label>
-        <input type="email" id="reg-confirm-email" required>
-      </div>
-
-      <div class="form-group-lr">
-        <label for="reg-password">CONTRASEÑA</label>
-        <input type="password" id="reg-password" required>
-      </div>
-
-      <div class="form-group-lr">
-        <label for="reg-confirm-password">CONFIRMAR CONTRASEÑA</label>
-        <input type="password" id="reg-confirm-password" required>
-      </div>
-
-      <div class="form-group-lr">
-        <label for="reg-phone">TELEFONO (opcional)</label>
-        <input type="tel" id="reg-phone">
-      </div>
-
-      <button class="boton-enviar"type="submit">Registrarse</button>
-      <p id="reg-message" class="message"></p>
-    </form>
-  </div>
-</div>
-  <script src="register.js"></script>
-  
-
+    <script type="module" src="/js/register.js"></script>
   </body>
 </html>

@@ -132,30 +132,35 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  min-height: 100vh;
+  min-height: calc(100vh - 80px);
   width: 100%;
+  padding: 30px 15px;
 }
 
-.contenedor-lr{
+.contenedor-lr {
   background: #d0fff8;
   width: 100%;
-  max-width: 400px;
-  border-radius: 4px;
-  overflow: hidden;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+  max-width: 420px;
   border-radius: 15px;
+  overflow: hidden;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+}
+
+.contenedor-lr.registro-ancho {
+  max-width: 680px;
 }
 
 .header-title {
   color: #333333;
-  padding: 0.8rem 1rem;
+  padding: 1rem;
   font-weight: bold;
-  font-size: 0.95rem;
+  font-size: 1.15rem;
   text-align: center;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.08);
 }
 
 .form-lr {
-  padding: 0 20px 20px 20px;
+  padding: 20px;
   display: flex;
   flex-direction: column;
   gap: 12px;
@@ -164,8 +169,9 @@ body {
 .form-group-lr {
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
+  align-items: stretch;
   gap: 4px;
+  text-align: left;
 }
 
 .form-group-lr label {
@@ -174,11 +180,64 @@ body {
   color: #333333;
 }
 
-.form-group-lr input {
+.form-group-lr input,
+.form-group-lr select,
+.form-group-lr textarea {
   width: 100%;
   padding: 8px 10px;
   border: 2px solid #ced4da;
   border-radius: 8px;
-  font-size: 1rem;
+  font-size: 0.95rem;
   box-sizing: border-box;
+  background-color: #ffffff;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.form-group-lr input:focus,
+.form-group-lr select:focus,
+.form-group-lr textarea:focus {
+  border-color: #0d6efd;
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(13, 110, 253, 0.15);
+}
+
+.form-row-2col {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+
+@media (max-width: 600px) {
+  .form-row-2col {
+    grid-template-columns: 1fr;
+  }
+}
+
+.invalid-feedback-custom {
+  color: #dc3545;
+  font-size: 0.82rem;
+  font-weight: 500;
+  margin-top: 2px;
+  display: none;
+}
+
+.form-group-lr input.is-invalid,
+.form-group-lr select.is-invalid,
+.campo-texto.is-invalid {
+  border-color: #dc3545 !important;
+  background-color: #fff8f8;
+}
+
+.form-group-lr input.is-valid,
+.form-group-lr select.is-valid,
+.campo-texto.is-valid {
+  border-color: #198754 !important;
+  background-color: #f6fff8;
+}
+
+.contador-caracteres {
+  font-size: 0.8rem;
+  color: #6c757d;
+  text-align: right;
+  margin-top: 2px;
 }
