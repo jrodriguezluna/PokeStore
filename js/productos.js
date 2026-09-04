@@ -1,43 +1,31 @@
 // js/productos.js
 import { obtenerTodosLosProductos } from './productosService.js';
 import { agregarAlCarrito } from './carritoService.js';
+import { renderProductCard } from './components/productCard.js';
 
 async function cargarPaginaProductos() {
-    const productos = await obtenerTodosLosProductos();
-    const contenedor = document.getElementById('contenedor-todos-los-productos');
-    
-    contenedor.innerHTML = '';
+    try {
+        const productos = await obtenerTodosLosProductos();
+        const contenedor = document.getElementById('contenedor-todos-los-productos');
+        
+        // Mapeamos los productos a strings de HTML y los unimos todos de una vez
+        const htmlTarjetas = productos.map(prod => renderProductCard(prod)).join('');
+        contenedor.innerHTML = htmlTarjetas;
 
-    productos.forEach(prod => {
-        contenedor.innerHTML += `
-            <div class="col-12 col-md-6 col-lg-4">
-                <div class="card h-100 shadow-sm">
-                    <img src="${prod.imagen}" class="card-img-top p-3" alt="${prod.nombre}" style="height: 250px; object-fit: contain;">
-                    <div class="card-body d-flex flex-column">
-                        <h5 class="card-title text-primary">${prod.nombre}</h5>
-                        <div class="d-flex justify-content-between align-items-center mt-auto pt-3">
-                            <span class="text-muted">${prod.atributo}</span>
-                            <span class="fw-bold fs-5">$${prod.precio.toFixed(2)}</span>
-                        </div>
-                        <button class="btn btn-outline-success mt-3 w-100" onclick="añadirAlCarrito(${prod.id})">
-                            Añadir al carrito
-                        </button>
-                    </div>
-                </div>
-            </div>
-        `;
-    });
-}
-
-window.añadirAlCarrito = async function(idProducto) {
-    await agregarAlCarrito(idProducto);
-    
-    // Disparamos la actualización visual de la navbar
-    if (window.actualizarContadorNavbar) {
-        window.actualizarContadorNavbar();
+    } catch (error) {
+        console.error("Error al cargar los productos:", error);
+        // Aquí podrías inyectar un mensaje de error amigable en el HTML
     }
-    
-    alert(`¡Producto añadido!`);
 }
+
+// Event Delegation: Escuchamos los clics en todo el documento, pero solo actuamos 
+// si el clic fue en un botón con la clase 'btn-add-cart'
+document.addEventListener('click', async (e) => {
+    if (e.target.classList.contains('btn-add-cart')) {
+        const idProducto = parseInt(e.target.getAttribute('data-id'));
+        await agregarAlCarrito(idProducto);
+        alert(`¡Producto añadido al carrito!`);
+    }
+});
 
 cargarPaginaProductos();

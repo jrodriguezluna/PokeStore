@@ -21,9 +21,15 @@ export async function agregarAlCarrito(productoId, cantidad = 1) {
         carrito.push({ id: productoId, cantidad: cantidad });
     }
 
-    // Guardamos el arreglo actualizado en localStorage
-    localStorage.setItem('pokeCarrito', JSON.stringify(carrito));
+    try {
+        localStorage.setItem('pokeCarrito', JSON.stringify(carrito));
     
+        document.dispatchEvent(new CustomEvent('carrito:actualizado'));
+        return carrito;
+    } catch (error) {
+        console.error("Error al guardar en el carrito:", error);
+    }
+
     return carrito;
 
     // Lógica para agregar info desde una api...
