@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PokeHome</title>
+    <title>Mantenedor de Productos - PokeStore Admin</title>
     <link rel="stylesheet" href="/css/style.css">
     <link rel="stylesheet" href="/css/buttons.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
@@ -14,22 +14,114 @@
     <script src="/js/draw_navbar_admin.js"></script>
 
     <div class="container py-5">
-      <div class="row">
-          <aside class="col-lg-3 mb-4">
-              <div class="card p-3 shadow-sm">
-                  <h4>Filtros</h4>
-                  <p class="text-muted">Próximamente...</p>
-                  </div>
-          </aside>
+      <!-- Cabecera -->
+      <div class="d-flex justify-content-between align-items-center mb-4">
+        <h2 class="fw-bold mb-0">Mantenedor de Productos</h2>
+        <button class="btn btn-success" id="btn-nuevo-producto">+ Nuevo Producto</button>
+      </div>
 
-          <main class="col-lg-9">
-              <div class="row g-4" id="contenedor-todos-los-productos">
-                <!-- contenido dinámico     -->
-              </div>
-              <script type="module" src="/js/productosAdmin.js"></script>
-          </main>
+      <!-- Tabla de productos -->
+      <div class="card shadow-sm">
+        <div class="card-body p-0">
+          <div class="table-responsive">
+            <table class="table table-hover align-middle mb-0" id="tabla-productos">
+              <thead class="table-dark">
+                <tr>
+                  <th style="width:60px">Img</th>
+                  <th>Código</th>
+                  <th>Nombre</th>
+                  <th>Categoría</th>
+                  <th>Precio</th>
+                  <th>Stock</th>
+                  <th style="width:150px">Acciones</th>
+                </tr>
+              </thead>
+              <tbody id="tbody-productos">
+                <!-- contenido dinámico -->
+              </tbody>
+            </table>
+          </div>
+        </div>
       </div>
     </div>
 
+    <!-- Modal Crear / Editar Producto -->
+    <div class="modal fade" id="modalProducto" tabindex="-1" aria-labelledby="modalProductoLabel" aria-hidden="true">
+      <div class="modal-dialog modal-lg modal-dialog-scrollable">
+        <div class="modal-content">
+          <div class="modal-header bg-dark text-white">
+            <h5 class="modal-title" id="modalProductoLabel">Producto</h5>
+            <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+          </div>
+          <div class="modal-body">
+            <form id="form-producto" novalidate>
+              <input type="hidden" id="prod-id">
+
+              <div class="row g-3">
+                <!-- Nombre -->
+                <div class="col-12 col-md-8">
+                  <label for="prod-nombre" class="form-label fw-semibold">Nombre <span class="text-danger">*</span></label>
+                  <input type="text" class="form-control" id="prod-nombre" maxlength="100" placeholder="Ej: Plushees pack x6" required>
+                </div>
+
+                <!-- Código -->
+                <div class="col-12 col-md-4">
+                  <label for="prod-codigo" class="form-label fw-semibold">Código <span class="text-danger">*</span></label>
+                  <input type="text" class="form-control" id="prod-codigo" maxlength="30" placeholder="Ej: PK-PLUSH-01" required>
+                </div>
+
+                <!-- Categoría -->
+                <div class="col-12 col-md-4">
+                  <label for="prod-atributo" class="form-label fw-semibold">Categoría <span class="text-danger">*</span></label>
+                  <input type="text" class="form-control" id="prod-atributo" maxlength="50" placeholder="Ej: Peluches" required>
+                </div>
+
+                <!-- Precio -->
+                <div class="col-6 col-md-4">
+                  <label for="prod-precio" class="form-label fw-semibold">Precio (USD) <span class="text-danger">*</span></label>
+                  <input type="number" class="form-control" id="prod-precio" min="0" step="0.01" placeholder="0.00" required>
+                </div>
+
+                <!-- Stock -->
+                <div class="col-3 col-md-2">
+                  <label for="prod-stock" class="form-label fw-semibold">Stock <span class="text-danger">*</span></label>
+                  <input type="number" class="form-control" id="prod-stock" min="0" placeholder="0" required>
+                </div>
+
+                <!-- Stock crítico -->
+                <div class="col-3 col-md-2">
+                  <label for="prod-stock-critico" class="form-label fw-semibold">Stock Mín.</label>
+                  <input type="number" class="form-control" id="prod-stock-critico" min="0" placeholder="2">
+                </div>
+
+                <!-- Descripción -->
+                <div class="col-12">
+                  <label for="prod-descripcion" class="form-label fw-semibold">Descripción</label>
+                  <textarea class="form-control" id="prod-descripcion" rows="3" maxlength="500" placeholder="Descripción del producto..."></textarea>
+                </div>
+
+                <!-- Imagen -->
+                <div class="col-12">
+                  <label for="prod-imagen" class="form-label fw-semibold">Imagen del producto</label>
+                  <input type="file" class="form-control" id="prod-imagen" accept="image/*">
+                  <div class="mt-2" id="prod-imagen-preview-wrapper" style="display:none;">
+                    <p class="text-muted small mb-1">Vista previa:</p>
+                    <img id="prod-imagen-preview" src="" alt="Vista previa" style="max-height:120px; object-fit:contain; border:1px solid #dee2e6; border-radius:8px; padding:4px;">
+                  </div>
+                </div>
+              </div>
+
+              <div id="prod-mensaje" class="mt-3 fw-semibold text-center" style="min-height:24px;"></div>
+            </form>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+            <button type="button" class="btn btn-primary" id="btn-guardar-producto">Guardar</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script type="module" src="/js/productosAdmin.js"></script>
   </body>
 </html>
