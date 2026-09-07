@@ -104,9 +104,6 @@ function renderizarNavbar() {
 
   // Activar link activo según URL
   let urlActual = window.location.pathname.split('/').pop();
-  if (urlActual === '') {
-    urlActual = 'index.html';
-  }
 
   const navLinks = document.querySelectorAll('.nav-link');
   navLinks.forEach(link => {

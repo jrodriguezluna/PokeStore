@@ -12,8 +12,8 @@ const productosCatalogo = [
     imagen: "/assets/img/products/plushees.jpg",
     galeria: [
       "/assets/img/products/plushees.jpg",
-      "/assets/img/products/pikachu_chonk.png",
-      "/assets/img/products/evee_tamagotchi.png"
+      "/assets/img/products/plushees_second.webp",
+      "/assets/img/products/plushees_third.webp"
     ],
     descripcion: "Hermoso pack de 6 peluches oficiales de primera generación confeccionados con felpa ultrasuave y acabados de alta fidelidad. Perfectos para coleccionistas y entrenadores de todas las edades."
   },
@@ -28,7 +28,7 @@ const productosCatalogo = [
     imagen: "/assets/img/products/pokecology.jpg",
     galeria: [
       "/assets/img/products/pokecology.jpg",
-      "/assets/img/CentroPokemon_Mega_Tokio.jpg"
+      "/assets/img/products/pokecology_second.avif"
     ],
     descripcion: "Fascinante enciclopedia ilustrada sobre los hábitats naturales, comportamiento ecológico y convivencia de las especies Pokémon en el ecosistema mundial. Tapa dura con papel satinado."
   },
@@ -43,7 +43,7 @@ const productosCatalogo = [
     imagen: "/assets/img/products/dvd_indigo.jpg",
     galeria: [
       "/assets/img/products/dvd_indigo.jpg",
-      "/assets/img/CentroPokemon_Mega_Tokio.jpg"
+      "/assets/img/products/dvd_indigo_second.webp"
     ],
     descripcion: "Revive los orígenes del viaje de Ash Ketchum y Pikachu con la serie completa de la Liga Añil en alta definición. Incluye audio en español latino e inglés y contenido extra exclusivo."
   },
@@ -58,24 +58,26 @@ const productosCatalogo = [
     imagen: "/assets/img/products/diorama.jpg",
     galeria: [
       "/assets/img/products/diorama.jpg",
-      "/assets/img/products/evolved_starters_lego.png"
+      "/assets/img/products/diorama_second.webp",
+      "/assets/img/products/diorama_third.webp"
     ],
     descripcion: "Pieza de coleccionista esculpida a mano en resina translúcida y pintura acrílica de precisión. Representa una escena silvestre de Pokémon de tipo bicho y planta en el Bosque Verde."
   },
   {
     id: 5,
     codigo: "PK-PLUSH-05",
-    nombre: "Pack Peluches Felinos",
+    nombre: "Espeon and Umbreon Plush Set",
     precio: 30.00,
     atributo: "Peluches",
     stock: 10,
     stockCritico: 3,
-    imagen: "/assets/img/products/pikachu_chonk.png",
+    imagen: "/assets/img/products/espeon_umbreon.jpg",
     galeria: [
-      "/assets/img/products/pikachu_chonk.png",
-      "/assets/img/products/plushees.jpg"
+      "/assets/img/products/espeon_umbreon.jpg",
+      "/assets/img/products/espeon_umbreon_second.jpg",
+      "/assets/img/products/espeon_umbreon_third.jpg"
     ],
-    descripcion: "Trío inseparable de Pokémon felinos: Litten, Skitty y Sprigatito en peluches acolchados de 20 cm. Ideales para abrazar o decorar tu espacio favorito."
+    descripcion: "Duo inseparable de Pokémon felinos: Umbreon y Espeon en peluches acolchados de 20 cm. Ideales para abrazar o decorar tu espacio favorito."
   },
   {
     id: 6,
@@ -85,12 +87,12 @@ const productosCatalogo = [
     atributo: "Hogar",
     stock: 20,
     stockCritico: 5,
-    imagen: "/assets/img/products/evee_tamagotchi.png",
+    imagen: "/assets/img/products/snorlax_cup.webp",
     galeria: [
-      "/assets/img/products/evee_tamagotchi.png",
-      "/assets/img/nosotros/pokeball2.png"
+      "/assets/img/products/snorlax_cup.webp",
+      "/assets/img/products/snorlax_cup_second.webp",
     ],
-    descripcion: "Vaso térmico ecológico de doble pared con pajita metálica y diseño de Snorlax disfrutando de una siesta. Libre de BPA y apto para bebidas frías y calientes."
+    descripcion: "Vaso térmico con diseño de Snorlax disfrutando de una siesta. Libre de BPA y apto para bebidas frías y calientes."
   },
   {
     id: 7,
@@ -100,25 +102,25 @@ const productosCatalogo = [
     atributo: "Manualidades",
     stock: 14,
     stockCritico: 3,
-    imagen: "/assets/img/products/evolved_starters_lego.png",
+    imagen: "/assets/img/products/amigurumi.jpeg",
     galeria: [
-      "/assets/img/products/evolved_starters_lego.png",
-      "/assets/img/products/pikachu_chonk.png"
+      "/assets/img/products/amigurumi.jpeg",
+      "/assets/img/products/amigurumi_second.webp",
+      "/assets/img/products/amigurumi_third.jpg"
     ],
     descripcion: "Kit completo de tejido que incluye lanas antialérgicas, ganchillo ergonómico, relleno siliconado y patrón ilustrado paso a paso para crear tu propio Pikachu amigurumi."
   },
   {
     id: 8,
     codigo: "PK-FOOD-08",
-    nombre: "Ramen Coreano Jigglypuff (Pack 4)",
+    nombre: "Ramen Frito Snack Pokemon con Figurita Coleccionable x6",
     precio: 8.00,
     atributo: "Alimentos",
     stock: 25,
     stockCritico: 6,
-    imagen: "/assets/img/products/plushees.jpg",
+    imagen: "/assets/img/products/ramen_pack.png",
     galeria: [
-      "/assets/img/products/plushees.jpg",
-      "/assets/img/products/dvd_indigo.jpg"
+      "/assets/img/products/ramen_pack.png"
     ],
     descripcion: "Delicioso ramen instantáneo con caldo suave de verduras y narutomaki en forma de notas musicales y Pokébolas. Sabor reconfortante importado directamente desde Asia."
   },
@@ -130,12 +132,12 @@ const productosCatalogo = [
     atributo: "Ropa",
     stock: 7,
     stockCritico: 2,
-    imagen: "/assets/img/nosotros/entrenador.webp",
+    imagen: "/assets/img/products/kanto_jacket.jpeg",
     galeria: [
-      "/assets/img/nosotros/entrenador.webp",
-      "/assets/img/nosotros/pokeball2.png"
+      "/assets/img/products/kanto_jacket.jpeg",
+      "/assets/img/products/kanto_jacket_second.avif"
     ],
-    descripcion: "Chaqueta bomber unisex confeccionada en algodón y poliéster repelente al viento, con los emblemáticos colores de la primera generación y parche bordado de la Liga Pokémon en la espalda."
+    descripcion: "Chaqueta bomber unisex confeccionada en algodón y poliéster repelente al viento, con los emblemáticos colores de la primera generación."
   },
   {
     id: 10,
@@ -145,25 +147,25 @@ const productosCatalogo = [
     atributo: "Hogar",
     stock: 9,
     stockCritico: 2,
-    imagen: "/assets/img/products/diorama.jpg",
+    imagen: "/assets/img/products/gengar_lamp.jpeg",
     galeria: [
-      "/assets/img/products/diorama.jpg",
-      "/assets/img/products/pokecology.jpg"
+      "/assets/img/products/gengar_lamp.jpeg",
+      "/assets/img/products/gengar_lamp_second.jpeg"
     ],
-    descripcion: "Lámpara LED con control remoto y 16 colores intercambiables que proyecta una silueta holográfica en 3D de Gengar. Alimentación por USB o baterías AA."
+    descripcion: "Lámpara con control remoto y 16 colores intercambiables de Gengar. Alimentación por USB o baterías AA."
   },
   {
     id: 11,
     codigo: "PK-ACC-11",
-    nombre: "Mochila Eevee Evolutions",
+    nombre: "Eevee x Tamagotchi",
     precio: 40.00,
-    atributo: "Accesorios",
+    atributo: "Juguetes",
     stock: 6,
     stockCritico: 2,
     imagen: "/assets/img/products/evee_tamagotchi.png",
     galeria: [
       "/assets/img/products/evee_tamagotchi.png",
-      "/assets/img/products/plushees.jpg"
+      "/assets/img/products/evee_tamagotchi_second.webp"
     ],
     descripcion: "Mochila ergonómica y espaciosa con estampado de todas las evoluciones de Eevee. Cuenta con compartimento acolchado para notebook de hasta 15.6 pulgadas y bolsillos organizadores."
   },
