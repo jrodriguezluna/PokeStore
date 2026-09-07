@@ -234,15 +234,55 @@ export async function obtenerProductosRelacionados(idActual, limite = 4) {
 
 // Actualizar información de un producto (para panel admin)
 export function actualizarProducto(id, datosNuevos) {
-  const index = productosCatalogo.findIndex(i => i.id === parseInt(id, 10));
+  const catalogo = obtenerCatalogoActual();
+  const index = catalogo.findIndex(i => i.id === parseInt(id, 10));
 
   if (index !== -1) {
-    productosCatalogo[index] = {
-      ...productosCatalogo[index],
+    catalogo[index] = {
+      ...catalogo[index],
       ...datosNuevos
     };
-    localStorage.setItem("pokeCatalogoModificado", JSON.stringify(productosCatalogo));
+    localStorage.setItem("pokeCatalogoModificado", JSON.stringify(catalogo));
     return true;
   }
   return false;
+}
+
+// Crear un nuevo producto (para panel admin)
+export function crearProducto(datos) {
+  const catalogo = obtenerCatalogoActual();
+  const maxId = catalogo.reduce((max, p) => Math.max(max, p.id), 0);
+  const nuevoProducto = {
+    id: maxId + 1,
+    codigo: datos.codigo || `PK-NEW-${maxId + 1}`,
+    nombre: datos.nombre || "Nuevo Producto",
+    precio: parseFloat(datos.precio) || 0,
+    atributo: datos.atributo || "General",
+    stock: parseInt(datos.stock) || 0,
+    stockCritico: parseInt(datos.stockCritico) || 2,
+    imagen: datos.imagen || "",
+    galeria: datos.imagen ? [datos.imagen] : [],
+    descripcion: datos.descripcion || ""
+  };
+  catalogo.push(nuevoProducto);
+  localStorage.setItem("pokeCatalogoModificado", JSON.stringify(catalogo));
+  return nuevoProducto;
+}
+
+// Eliminar un producto por ID (para panel admin)
+export function eliminarProducto(id) {
+  const catalogo = obtenerCatalogoActual();
+  const nuevoCatalogo = catalogo.filter(p => p.id !== parseInt(id, 10));
+  if (nuevoCatalogo.length === catalogo.length) return false;
+  localStorage.setItem("pokeCatalogoModificado", JSON.stringify(nuevoCatalogo));
+  return true;
+}
+
+// Helper interno: obtiene el catálogo vigente (localStorage o base)
+function obtenerCatalogoActual() {
+  const guardados = localStorage.getItem("pokeCatalogoModificado");
+  if (guardados) {
+    try { return JSON.parse(guardados); } catch { /* falla silenciosa */ }
+  }
+  return [...productosCatalogo];
 }
