@@ -3,115 +3,152 @@
   <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PokeStore</title>
+    <title>PokeStore - Nosotros</title>
     <link rel="stylesheet" href="/css/style.css">
     <link rel="stylesheet" href="/css/buttons.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+
+    <!-- cambio pequeno estilo de tarjetas pa que no sea tan plano y feo -->
+    <style>
+      .nosotros-section {
+        padding-top: clamp(2.5rem, 5vw, 5rem);
+        padding-bottom: clamp(2.5rem, 5vw, 5rem);
+      }
+
+      .nosotros-media {
+        width: 100%;
+        max-width: 320px;
+        aspect-ratio: 1 / 1;
+        object-fit: contain;
+        margin: 0 auto;
+      }
+
+      .entrenador-foto {
+        width: 100%;
+        aspect-ratio: 3 / 4;
+        object-fit: cover;
+        object-position: top center;
+      }
+
+      .card-nosotros {
+        border: 1.5px solid var(--bs-border-color, #ffe2dd);
+        border-radius: 0.75rem;
+        box-shadow: 0 6px 18px rgba(0, 0, 0, 0.06);
+      }
+      
+    </style>
+    
   </head>
   <body>
     <div id="navbar-placeholder"></div>
     <script src="/js/draw_navbar.js"></script>
 
-    <div class="container text-center" style="margin-top: 80px;">
-      <div class="row">
-        <div class="col">
-          <div class="card">
-            <div class="card-body">
-              <h5 class="card-title">Origenes</h5>
-              <h6 class="card-subtitle mb-2 text-body-secondary">Como empezo</h6>
-              <p class="card-text">Nuestra historia comenzó junto a una fogata en la Ruta 5, cuando tres entrenadores con talentos totalmente dispares decidieron unir fuerzas: Daniel, un tipo extrovertido incapaz de disimular su devoción ruidosa por Cubone; Esteban, un especialista bastante reservado pero con una memoria enciclopédica sobre cartas coleccionables, lore y peluches; y Jeff, un apasionado de la tecnología dedicado a diseñar las herramientas y la plataforma logística perfecta para ayudar a la comunidad. Cansados de tener que viajar por diez regiones distintas solo para encontrar desde peluches de edición limitada y cartas TCG descatalogadas hasta el mejor ramen instantáneo de Pikachu, unimos la energía social de Daniel, la precisión técnica de Esteban y las innovaciones de Jeff para fundar este emporio comercial, asegurando que ningún entrenador vuelva a quedarse sin su equipamiento ideal.</p>
+    <main>
+      <div class="container">
+
+        <h1 class="text-center nosotros-section pb-0">Nosotros Pokestore</h1>
+
+        <!-- Origenes -->
+        <section class="nosotros-section">
+          <div class="row align-items-center g-4">
+            <div class="col-12 col-md-7 order-2 order-md-1">
+              <div class="card card-nosotros h-100">
+                <div class="card-body">
+                  <h2 class="h4 card-title">Orígenes</h2>
+                  <h3 class="h6 card-subtitle mb-3 text-body-secondary">Cómo empezó</h3>
+                  <p class="card-text">Nuestra historia comenzó junto a una fogata en la Ruta 5, cuando tres entrenadores con talentos totalmente dispares decidieron unir fuerzas: Daniel, un tipo extrovertido incapaz de disimular su devoción ruidosa por Cubone; Esteban, un especialista bastante reservado pero con una memoria enciclopédica sobre cartas coleccionables, lore y peluches; y Jeff, un apasionado de la tecnología dedicado a diseñar las herramientas y la plataforma logística perfecta para ayudar a la comunidad.</p>
+                </div>
+              </div>
+            </div>
+            <div class="col-12 col-md-5 order-1 order-md-2">
+              <img src="/assets/img/nosotros/entrenador.webp" alt="Entrenador Pokémon fundador de PokeStore" class="nosotros-media">
             </div>
           </div>
-        </div>
-        <div class="col">
-          <img src="/assets/img/nosotros/entrenador.webp" alt="entrenador" style="width: 50%;">
-        </div>
-      </div>
+        </section>
 
-      <!-- <hr> -->
-
-      <div class="row" style="margin-top: 140px;">
-        <div class="col">
-          <img src="/assets/img/nosotros/pokeball2.png" alt="pokeball" style="width: 35%;">
-        </div>
-        <div class="col">
-          <div class="card">
-            <div class="card-body">
-              <h5 class="card-title">Mision</h5>
-              <h6 class="card-subtitle mb-2 text-body-secondary">Nuestro objetivo</h6>
-              <p class="card-text">Somos tres entrenadores que, tras recorrer incontables rutas, desafiar gimnasios y pasar demasiado tiempo en el Centro Pokémon reorganizando nuestras cajas de almacenamiento, decidimos unir nuestras medallas para fundar el centro de suministros definitivo.
-
-Nuestra misión es proveer a cada entrenador, coleccionista, coordinador y campeón con absolutamente cualquier artículo del universo Pokémon que pueda necesitar. Operamos bajo el firme compromiso de mantener un catálogo tan completo como la Poké-dex nacional, garantizando que no tengas que gastar una Master Ball para conseguir lo que buscas.</p>
+        <!-- Mision -->
+        <section class="nosotros-section pt-0">
+          <div class="row align-items-center g-4">
+            <div class="col-12 col-md-5">
+              <img src="/assets/img/nosotros/pokeball2.png" alt="Poké Ball" class="nosotros-media">
             </div>
-          </div>
-        </div>
-      </div>
-
-      <div class="container text-center" style="margin-top: 140px;">
-        <div class="row">
-          <div class="col">
-            <div class="card">
-              <div class="card-body">
-                <h5 class="card-title">Garantia</h5>
-                <h6 class="card-subtitle mb-2 text-body-secondary">Siempre originales</h6>
-                <p class="card-text">En nuestra tienda, la confianza de un entrenador no se deja tirada. Esteban inspecciona minuciosamente cada carta, peluche, figura y caja de ramen para certificar que sean 100% oficiales (aquí no vendemos imitaciones fabricadas por un Ditto impostor). Por su parte, Jeff ha diseñado un sistema de empaquetado tan blindado que tus productos podrían soportar un Hiperrayo directo sin sufrir un solo rasguño durante el viaje. Si por alguna extraña anomalía tu pedido no llega en estado impecable o el artículo no cumple con tus expectativas, Daniel estará en la línea de frente para gestionar tu cambio o devolución a la velocidad de la luz. Tu satisfacción está respaldada formalmente por el Alto Mando: si no quedas satisfecho, te devolvemos tus poderosos dolares sin complicaciones.</p>
+            <div class="col-12 col-md-7">
+              <div class="card card-nosotros h-100">
+                <div class="card-body">
+                  <h2 class="h4 card-title">Misión</h2>
+                  <h3 class="h6 card-subtitle mb-3 text-body-secondary">Nuestro objetivo</h3>
+                  <p class="card-text">Proveer a cada entrenador, coleccionista, coordinador y campeón con absolutamente cualquier artículo del universo Pokémon que pueda necesitar. Operamos bajo el firme compromiso de mantener un catálogo tan completo como la Poké-dex nacional, garantizando que no tengas que gastar una Master Ball para conseguir lo que buscas.</p>
+                </div>
               </div>
             </div>
           </div>
-          <div class="col">
-            <img src="/assets/img/nosotros/cartas.png" alt="cartas" style="width: 60%;">
+        </section>
+
+        <!-- Garantia -->
+        <section class="nosotros-section pt-0">
+          <div class="row align-items-center g-4">
+            <div class="col-12 col-md-7 order-2 order-md-1">
+              <div class="card card-nosotros h-100">
+                <div class="card-body">
+                  <h2 class="h4 card-title">Garantía</h2>
+                  <h3 class="h6 card-subtitle mb-3 text-body-secondary">Siempre originales</h3>
+                  <p class="card-text">Cada carta, peluche, figura y caja de ramen es inspeccionada minuciosamente para certificar que sea 100% oficial. Nuestro empaquetado está diseñado para soportar el viaje sin un solo rasguño, y si algo llega fuera de tus expectativas, gestionamos tu cambio o devolución sin complicaciones.</p>
+                </div>
+              </div>
+            </div>
+            <div class="col-12 col-md-5 order-1 order-md-2">
+              <img src="/assets/img/nosotros/cartas.png" alt="Cartas coleccionables Pokémon TCG" class="nosotros-media">
+            </div>
           </div>
-        </div>
+        </section>
+
+        <!-- Nuestros entrenadores -->
+        <section class="nosotros-section pt-0">
+          <h2 class="h3 text-center mb-4">Nuestros entrenadores</h2>
+          <div class="row g-4">
+            <div class="col-12 col-md-4">
+              <div class="card card-nosotros h-100">
+                <img src="/assets/img/nosotros/ent1.png" alt="Daniel, entrenador Pokémon" class="entrenador-foto">
+                <div class="card-body">
+                  <h3 class="h5 card-title">Daniel</h3>
+                  <h4 class="h6 card-subtitle mb-2 text-body-secondary">Atención al cliente</h4>
+                  <p class="card-text">Extrovertido, efusivo y devoto absoluto de Cubone. Es la voz que te recibe y la energía social que conecta con la comunidad.</p>
+                </div>
+              </div>
+            </div>
+            <div class="col-12 col-md-4">
+              <div class="card card-nosotros h-100">
+                <img src="/assets/img/nosotros/ent2.webp" alt="Esteban, entrenador Pokémon" class="entrenador-foto">
+                <div class="card-body">
+                  <h3 class="h5 card-title">Esteban</h3>
+                  <h4 class="h6 card-subtitle mb-2 text-body-secondary">Control de calidad</h4>
+                  <p class="card-text">Reservado, analítico y poseedor de una memoria enciclopédica sobre el universo Pokémon. Garantiza que todo el catálogo sea 100% oficial.</p>
+                </div>
+              </div>
+            </div>
+            <div class="col-12 col-md-4">
+              <div class="card card-nosotros h-100">
+                <img src="/assets/img/nosotros/ent3.webp" alt="Jeff, entrenador Pokémon" class="entrenador-foto">
+                <div class="card-body">
+                  <h3 class="h5 card-title">Jeff</h3>
+                  <h4 class="h6 card-subtitle mb-2 text-body-secondary">Logística y marketing</h4>
+                  <p class="card-text">Innovador y enfocado en infraestructura. Diseña la plataforma de ventas y el empaquetado ultraresistente de cada envío.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
       </div>
-
-      <div class="container text-center" style="margin-top: 140px;">
-        <h2 style="margin-bottom: 50px;">Nuestros entrenadores</h2>
-        <div class="row">
-          <div class="col">
-            <img src="/assets/img/nosotros/ent1.png" style="width: 60%;">
-            <div class="card">
-              <div class="card-body">
-                <h5 class="card-title">Daniel</h5>
-                <h6 class="card-subtitle mb-2 text-body-secondary">Entrenador pokemon | Atencion al cliente</h6>
-                <p class="card-text"><strong>Perfil:</strong> Extrovertido, efusivo y devoto absoluto de Cubone. <br>
-
-<strong>Rol en la Tienda:</strong> Atención al cliente y relaciones públicas. Es la voz que te recibe, el encargado de resolver cualquier problema y la energía social que conecta con la comunidad.</p>
-              </div>
-            </div>
-          </div>
-          <div class="col">
-            <img src="/assets/img/nosotros/ent2.webp" style="width: 72%;">
-            <div class="card">
-              <div class="card-body">
-                <h5 class="card-title">Esteban</h5>
-                <h6 class="card-subtitle mb-2 text-body-secondary">Entrenador pokemon | Control de calidad</h6>
-                <p class="card-text"><strong>Perfil:</strong> Reservado, analítico y poseedor de una memoria enciclopédica sobre el universo Pokémon. <br> <strong> Rol en la Tienda: </strong>Autenticidad y control de calidad. Inspecciona minuciosamente cada carta TCG, peluche y caja de ramen, garantizando que todo el catálogo sea 100% oficial y libre de imitaciones.</p>
-              </div>
-            </div>
-          </div>
-          <div class="col" style="margin-bottom: 50px;">
-            <img src="/assets/img/nosotros/ent3.webp" style="width: 52%;">
-            <div class="card">
-              <div class="card-body">
-                <h5 class="card-title">Jeff</h5>
-                <h6 class="card-subtitle mb-2 text-body-secondary">Entrenador pokemon | Logistica y Marketing</h6>
-                <p class="card-text"><strong>Perfil:</strong> Innovador, enfocado en la infraestructura y apasionado por la variedad de especies. <br> <strong>Rol en la Tienda: </strong>Logística y desarrollo digital. Diseña la plataforma de ventas y los sistemas de empaquetado ultraresistentes para asegurar que cada envío llegue impecable a su destino.</p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-    </div>
+    </main>
 
     <footer class="bg-dark text-white py-4 mt-auto">
-  <div class="container text-center">
-    <p class="mb-1 fw-bold">PokeStore © 2026 - Todos los derechos reservados</p>
-    <small class="text-white-50">Desarrollado para Evaluación 1 Fullstack II - Duoc UC</small>
-  </div>
-</footer>
-
+      <div class="container text-center">
+        <p class="mb-1 fw-bold">PokeStore © 2026 - Todos los derechos reservados</p>
+        <small class="text-white-50">Desarrollado para Evaluación 1 Fullstack II - Duoc UC</small>
+      </div>
+    </footer>
 
   </body>
 </html>
